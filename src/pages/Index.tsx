@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
+import Introduction from "@/components/Introduction";
 import ControlPanel from "@/components/ControlPanel";
 import ContentDisplay from "@/components/ContentDisplay";
 import Footer from "@/components/Footer";
@@ -27,6 +28,8 @@ const Index = () => {
       <PageHeader />
 
       <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Introduction />
+        
         <ControlPanel 
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}

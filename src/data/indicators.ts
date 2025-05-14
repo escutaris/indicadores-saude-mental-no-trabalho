@@ -23,7 +23,7 @@ export const indicators: Indicator[] = [
   {
     id: 1,
     title: "Taxa de absenteísmo",
-    category: "RH",
+    category: "Reativo",
     details: {
       description: "Faltas por motivos de saúde mental (aqui inclui os motivadores osteomusculares)",
       source: "RH, folha de pagamento, sesmt",
@@ -40,12 +40,12 @@ export const indicators: Indicator[] = [
   {
     id: 2,
     title: "Taxa de frequência de lesões ocupacionais não fatais",
-    category: "Segurança",
+    category: "Reativo",
     details: {
-      description: "O número de novos casos de lesões ocupacionais não fatais por hora trabalhada pela população em questão durante o período de referência",
+      description: "O número de novos casos de distúrbios mentais e comportamentais (CID F) por hora trabalhada durante o período de referência",
       source: "CAT",
       tools: "",
-      formula: "(Número de novos casos dedoença ocupacional não fatal durante o período de referência) / (Número total de horas trabalhadas por trabalhadores no grupo de referência durante o período de referência) × 1.000.000",
+      formula: "(Número de novos casos de distúrbios mentais e comportamentais durante o período de referência) / (Número total de horas trabalhadas por trabalhadores no grupo de referência durante o período de referência) × 1.000.000",
       frequency: "mensal",
       responsible: "RH",
       target: "zero",
@@ -57,7 +57,7 @@ export const indicators: Indicator[] = [
   {
     id: 3,
     title: "Índice de rotatividade",
-    category: "RH",
+    category: "Reativo",
     details: {
       description: "Saídas de colaboradores ligadas à saúde mental",
       source: "RH",
@@ -74,7 +74,7 @@ export const indicators: Indicator[] = [
   {
     id: 4,
     title: "Engajamento",
-    category: "Desenvolvimento",
+    category: "Proativo",
     details: {
       description: "Motivação e envolvimento dos funcionários",
       source: "Pesquisas internas",
@@ -91,7 +91,7 @@ export const indicators: Indicator[] = [
   {
     id: 5,
     title: "Satisfação no trabalho",
-    category: "Bem-estar",
+    category: "Proativo",
     details: {
       description: "Bem‑estar e equilíbrio emocional",
       source: "Pesquisas, entrevistas",
@@ -108,7 +108,7 @@ export const indicators: Indicator[] = [
   {
     id: 6,
     title: "Estresse percebido",
-    category: "Saúde",
+    category: "Proativo",
     details: {
       description: "Estress percebido",
       source: "Questionários, plataformas",
@@ -125,7 +125,7 @@ export const indicators: Indicator[] = [
   {
     id: 7,
     title: "Produtividade",
-    category: "Desempenho",
+    category: "Proativo",
     details: {
       description: "Desempenho relacionado ao bem‑estar mental",
       source: "Avaliação de desempenho",
@@ -142,7 +142,7 @@ export const indicators: Indicator[] = [
   {
     id: 8,
     title: "Clima organizacional",
-    category: "Ambiente",
+    category: "Proativo",
     details: {
       description: "Percepção de justiça\nComprometimento organizacional afetivo",
       source: "Pesquisas de clima",
@@ -159,7 +159,7 @@ export const indicators: Indicator[] = [
   {
     id: 9,
     title: "Acidentabilidade",
-    category: "Segurança",
+    category: "Reativo",
     details: {
       description: "Fadiga acumulada ao final da jornada de trabalho e a necessidade de descanso",
       source: "Pesquisas internas",
@@ -176,7 +176,7 @@ export const indicators: Indicator[] = [
   {
     id: 10,
     title: "Presenteísmo",
-    category: "Saúde",
+    category: "Reativo",
     details: {
       description: "Produtividade reduzida apesar da presença",
       source: "Pesquisas internas",
@@ -193,7 +193,7 @@ export const indicators: Indicator[] = [
   {
     id: 11,
     title: "Segurança psicológica",
-    category: "Ambiente",
+    category: "Proativo",
     details: {
       description: "nível de confiança e liberdade que as pessoas sentem para se expressar, questionar, assumir riscos interpessoais e admitir erros no ambiente de trabalho, sem medo de sofrer humilhação, punição ou retaliação.",
       source: "Pesquisas internas",
@@ -212,4 +212,3 @@ export const indicators: Indicator[] = [
 export const getCategories = (): string[] => {
   return [...new Set(indicators.map(indicator => indicator.category))];
 };
-

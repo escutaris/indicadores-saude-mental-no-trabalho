@@ -20,7 +20,7 @@ const PageHeader: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <h1 className="text-3xl md:text-4xl font-bold text-escutarisPrimary text-center">
-            Indicadores de Saúde Mental no Trabalho
+            Indicadores de Saúde Mental e Ocupacional no Trabalho
           </h1>
           <p className="text-gray-600 mt-2 text-center max-w-2xl">
             Guia prático para acompanhamento e gestão estratégica da saúde mental em ambientes corporativos

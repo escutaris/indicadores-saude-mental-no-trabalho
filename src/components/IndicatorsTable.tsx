@@ -32,7 +32,7 @@ const IndicatorsTable: React.FC<IndicatorsTableProps> = ({ indicators, filters }
     <div className="w-full rounded-md border">
       <ScrollArea className="h-[calc(100vh-240px)] w-full">
         <Table>
-          <TableCaption>Tabela de Indicadores de Saúde Mental no Trabalho</TableCaption>
+          <TableCaption>Tabela de Indicadores de Saúde Mental e Ocupacional no Trabalho</TableCaption>
           <TableHeader className="bg-gray-50 sticky top-0 z-10">
             <TableRow>
               <TableHead className="w-[180px]">Indicador de saúde mental</TableHead>
