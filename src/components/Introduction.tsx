@@ -18,7 +18,7 @@ const Introduction: React.FC = () => {
         </CardHeader>
         <CardContent className="text-gray-700">
           <div className="space-y-4">
-            <p>Os indicadores de saúde mental no trabalho são métricas essenciais que permitem às organizações monitorar, avaliar e melhorar o bem-estar psicológico de seus trabalhadores. Estes indicadores fornecem dados concretos sobre diversos aspectos da saúde mental no ambiente de trabalho, permitindo intervenções embasadas em evidências.</p>
+            <p>Os indicadores de saúde mental no trabalho são métricas essenciais que permitem às organizações monitorar, avaliar e melhorar o bem-estar psicológico de seus trabalhadores. Estes indicadores fornecem dados concretos sobre diversos aspectos da saúde mental no ambiente de trabalho, permitindo intervenções embasadas em evidências científicas.</p>
             
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-gray-50 p-4 rounded-md border-l-4 border-escutarisSecondary">
