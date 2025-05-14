@@ -18,11 +18,12 @@ const PageHeader: React.FC = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-center"
         >
           <h1 className="text-3xl md:text-4xl font-bold text-escutarisPrimary text-center">
             Indicadores de Saúde Mental e Ocupacional no Trabalho
           </h1>
-          <p className="text-gray-600 mt-2 text-center max-w-2xl">
+          <p className="text-gray-600 mt-2 text-center mx-auto max-w-2xl">
             Guia prático para acompanhamento e gestão estratégica da saúde mental em ambientes corporativos
           </p>
         </motion.div>
