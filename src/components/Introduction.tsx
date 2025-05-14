@@ -1,28 +1,24 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 const Introduction: React.FC = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.3 }}
-      className="mb-8"
-    >
+  return <motion.div initial={{
+    opacity: 0,
+    y: 20
+  }} animate={{
+    opacity: 1,
+    y: 0
+  }} transition={{
+    duration: 0.5,
+    delay: 0.3
+  }} className="mb-8">
       <Card>
         <CardHeader className="pb-2">
           <CardTitle className="text-2xl text-escutarisPrimary">Sobre os Indicadores de Saúde Mental no Trabalho</CardTitle>
         </CardHeader>
         <CardContent className="text-gray-700">
           <div className="space-y-4">
-            <p>
-              Os indicadores de saúde mental no trabalho são métricas essenciais que permitem às organizações 
-              monitorar, avaliar e melhorar o bem-estar psicológico de seus colaboradores. Estes indicadores 
-              fornecem dados concretos sobre diversos aspectos da saúde mental no ambiente de trabalho, 
-              permitindo intervenções embasadas em evidências.
-            </p>
+            <p>Os indicadores de saúde mental no trabalho são métricas essenciais que permitem às organizações monitorar, avaliar e melhorar o bem-estar psicológico de seus trabalhadores. Estes indicadores fornecem dados concretos sobre diversos aspectos da saúde mental no ambiente de trabalho, permitindo intervenções embasadas em evidências.</p>
             
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-gray-50 p-4 rounded-md border-l-4 border-escutarisSecondary">
@@ -86,8 +82,6 @@ const Introduction: React.FC = () => {
           </div>
         </CardContent>
       </Card>
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default Introduction;
