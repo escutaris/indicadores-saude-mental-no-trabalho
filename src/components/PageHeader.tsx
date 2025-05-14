@@ -1,28 +1,21 @@
-
 import React from "react";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import ThemeToggle from "./ThemeToggle";
-
 const PageHeader: React.FC = () => {
-  return (
-    <header className="bg-background sticky top-0 z-50 w-full border-b shadow-sm">
+  return <header className="bg-background sticky top-0 z-50 w-full border-b shadow-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold text-escutarisPrimary">Indicadores de Saúde Mental no Trabalho</h1>
+          <h1 className="text-2xl font-bold text-escutarisPrimary">                           Indicadores de Saúde Mental no Trabalho</h1>
         </div>
         
         <div className="flex items-center space-x-2">
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink href="/" className={navigationMenuTriggerStyle()}>
-                  Início
-                </NavigationMenuLink>
+                
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#sobre" className={navigationMenuTriggerStyle()}>
-                  Sobre
-                </NavigationMenuLink>
+                
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -34,8 +27,6 @@ const PageHeader: React.FC = () => {
           Guia prático para acompanhamento e gestão estratégica da saúde mental em ambientes corporativos
         </p>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default PageHeader;
