@@ -11,26 +11,7 @@ import {
 } from "@/components/ui/table";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-
-interface IndicatorDetail {
-  description: string;
-  source: string;
-  tools: string;
-  formula: string;
-  frequency: string;
-  responsible: string;
-  target: string;
-  method: string;
-  topics: string;
-  references?: string;
-}
-
-interface Indicator {
-  id: number;
-  title: string;
-  category: string;
-  details: IndicatorDetail;
-}
+import { Indicator } from "@/data/indicators";
 
 interface IndicatorsTableProps {
   indicators: Indicator[];
