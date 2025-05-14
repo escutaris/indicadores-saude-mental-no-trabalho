@@ -13,6 +13,7 @@ interface IndicatorDetail {
   target: string;
   method: string;
   topics: string;
+  references?: string;
 }
 
 interface IndicatorProps {
@@ -65,7 +66,7 @@ const IndicatorCard: React.FC<IndicatorProps> = ({ indicator }) => {
             <div className="space-y-3">
               <div className="bg-gray-50 p-3 rounded-md">
                 <p className="font-medium text-escutarisPrimary">O que mede:</p>
-                <p>{indicator.details.description}</p>
+                <p className="whitespace-pre-wrap">{indicator.details.description}</p>
               </div>
               
               <div className="bg-gray-50 p-3 rounded-md">
@@ -73,14 +74,16 @@ const IndicatorCard: React.FC<IndicatorProps> = ({ indicator }) => {
                 <p>{indicator.details.source}</p>
               </div>
               
-              <div className="bg-gray-50 p-3 rounded-md">
-                <p className="font-medium text-escutarisPrimary">Ferramentas:</p>
-                <p>{indicator.details.tools}</p>
-              </div>
+              {indicator.details.tools && (
+                <div className="bg-gray-50 p-3 rounded-md">
+                  <p className="font-medium text-escutarisPrimary">Ferramentas:</p>
+                  <p>{indicator.details.tools}</p>
+                </div>
+              )}
               
               <div className="bg-gray-50 p-3 rounded-md">
                 <p className="font-medium text-escutarisPrimary">Fórmula / cálculo:</p>
-                <p>{indicator.details.formula}</p>
+                <p className="whitespace-pre-wrap">{indicator.details.formula}</p>
               </div>
             </div>
             
@@ -100,15 +103,26 @@ const IndicatorCard: React.FC<IndicatorProps> = ({ indicator }) => {
                 <p>{indicator.details.target}</p>
               </div>
               
-              <div className="bg-gray-50 p-3 rounded-md">
-                <p className="font-medium text-escutarisPrimary">Método qualitativo:</p>
-                <p>{indicator.details.method}</p>
-              </div>
+              {indicator.details.method && (
+                <div className="bg-gray-50 p-3 rounded-md">
+                  <p className="font-medium text-escutarisPrimary">Método qualitativo:</p>
+                  <p>{indicator.details.method}</p>
+                </div>
+              )}
               
-              <div className="bg-gray-50 p-3 rounded-md col-span-1 md:col-span-2">
-                <p className="font-medium text-escutarisPrimary">Temas explorados:</p>
-                <p>{indicator.details.topics}</p>
-              </div>
+              {indicator.details.topics && (
+                <div className="bg-gray-50 p-3 rounded-md">
+                  <p className="font-medium text-escutarisPrimary">Temas explorados:</p>
+                  <p>{indicator.details.topics}</p>
+                </div>
+              )}
+              
+              {indicator.details.references && (
+                <div className="bg-gray-50 p-3 rounded-md col-span-1 md:col-span-2">
+                  <p className="font-medium text-escutarisPrimary">Referências científicas:</p>
+                  <p className="text-xs break-words">{indicator.details.references}</p>
+                </div>
+              )}
             </div>
           </motion.div>
         )}
