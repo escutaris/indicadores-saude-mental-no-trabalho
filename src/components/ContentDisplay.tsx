@@ -1,4 +1,3 @@
-
 import React from "react";
 import IndicatorCard from "./IndicatorCard";
 import IndicatorsTable from "./IndicatorsTable";
@@ -28,29 +27,41 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ indicators, viewMode, f
 
   const exportToCSV = () => {
     try {
-      // CSV header row
-      let csvContent = "Título,Categoria,Descrição,Fonte,Ferramentas,Fórmula,Frequência,Responsável,Meta,Método,Temas\n";
+      // BOM (Byte Order Mark) para garantir que caracteres especiais sejam reconhecidos corretamente
+      const BOM = "\uFEFF";
       
-      // Add each indicator as a CSV row
+      // CSV header row
+      let csvContent = BOM + "Título;Categoria;Descrição;Fonte;Ferramentas;Fórmula;Frequência;Responsável;Meta;Método;Temas;Referências\n";
+      
+      // Add each indicator as a CSV row, using semicolons (;) as separators for better compatibility
       filteredIndicators.forEach(indicator => {
+        // Função para limpar e formatar texto para CSV
+        const formatCSVField = (text: string) => {
+          // Substitui quebras de linha por espaços para evitar problemas de formatação
+          const cleanedText = text.replace(/\r?\n|\r/g, ' ');
+          // Escapa aspas duplas duplicando-as
+          return cleanedText.replace(/"/g, '""');
+        };
+        
         const row = [
-          `"${indicator.title.replace(/"/g, '""')}"`,
-          `"${indicator.category.replace(/"/g, '""')}"`,
-          `"${indicator.details.description.replace(/"/g, '""')}"`,
-          `"${indicator.details.source.replace(/"/g, '""')}"`,
-          `"${indicator.details.tools.replace(/"/g, '""')}"`,
-          `"${indicator.details.formula.replace(/"/g, '""')}"`,
-          `"${indicator.details.frequency.replace(/"/g, '""')}"`,
-          `"${indicator.details.responsible.replace(/"/g, '""')}"`,
-          `"${indicator.details.target.replace(/"/g, '""')}"`,
-          `"${indicator.details.method.replace(/"/g, '""')}"`,
-          `"${indicator.details.topics.replace(/"/g, '""')}"`
-        ].join(',');
+          `"${formatCSVField(indicator.title)}"`,
+          `"${formatCSVField(indicator.category)}"`,
+          `"${formatCSVField(indicator.details.description)}"`,
+          `"${formatCSVField(indicator.details.source)}"`,
+          `"${formatCSVField(indicator.details.tools)}"`,
+          `"${formatCSVField(indicator.details.formula)}"`,
+          `"${formatCSVField(indicator.details.frequency)}"`,
+          `"${formatCSVField(indicator.details.responsible)}"`,
+          `"${formatCSVField(indicator.details.target)}"`,
+          `"${formatCSVField(indicator.details.method)}"`,
+          `"${formatCSVField(indicator.details.topics)}"`,
+          `"${formatCSVField(indicator.details.references || "")}"`
+        ].join(';');
         csvContent += row + "\n";
       });
       
-      // Create a Blob with the CSV data
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      // Create a Blob with the CSV data and correct encoding
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
       
       // Create a download link
       const link = document.createElement("a");
@@ -121,7 +132,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ indicators, viewMode, f
           Exportar dados
         </Button>
       </div>
-      <IndicatorsTable indicators={indicators} filters={filters} />
+      <IndicatorsTable indicators={filteredIndicators} filters={filters} />
     </div>
   );
 };
