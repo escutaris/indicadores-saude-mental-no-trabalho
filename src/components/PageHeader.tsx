@@ -1,4 +1,3 @@
-
 import React from "react";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import ThemeToggle from "./ThemeToggle";
@@ -24,9 +23,7 @@ const PageHeader: React.FC = () => {
         </div>
       </div>
       <div className="bg-escutarisPrimary text-white py-3">
-        <p className="text-center mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          Guia prático para acompanhamento e gestão estratégica da saúde mental em ambientes corporativos
-        </p>
+        <p className="text-center mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">Guia prático para gestão estratégica da saúde mental em ambientes corporativos</p>
       </div>
     </header>;
 };
