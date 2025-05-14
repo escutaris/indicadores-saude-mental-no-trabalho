@@ -1,33 +1,41 @@
+
 import React from "react";
-import { motion } from "framer-motion";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import ThemeToggle from "./ThemeToggle";
+
 const PageHeader: React.FC = () => {
-  return <header className="bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        <motion.img initial={{
-        opacity: 0,
-        y: -20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.5
-      }} src="/lovable-uploads/467189bd-1025-41fd-8c1a-a39f87632853.png" alt="Logo Escutaris" className="h-20 mb-4" />
-        <motion.div initial={{
-        opacity: 0,
-        y: -10
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        delay: 0.2,
-        duration: 0.5
-      }} className="text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-escutarisPrimary text-center">Indicadores de Saúde Mental no Trabalho</h1>
-          <p className="text-gray-600 mt-2 text-center mx-auto max-w-2xl">
-            Guia prático para acompanhamento e gestão estratégica da saúde mental em ambientes corporativos
-          </p>
-        </motion.div>
+  return (
+    <header className="bg-background sticky top-0 z-50 w-full border-b shadow-sm">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center">
+          <h1 className="text-2xl font-bold text-escutarisPrimary">Indicadores de Saúde Mental no Trabalho</h1>
+        </div>
+        
+        <div className="flex items-center space-x-2">
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuLink href="/" className={navigationMenuTriggerStyle()}>
+                  Início
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink href="#sobre" className={navigationMenuTriggerStyle()}>
+                  Sobre
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          <ThemeToggle />
+        </div>
       </div>
-    </header>;
+      <div className="bg-escutarisPrimary text-white py-3">
+        <p className="text-center mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          Guia prático para acompanhamento e gestão estratégica da saúde mental em ambientes corporativos
+        </p>
+      </div>
+    </header>
+  );
 };
+
 export default PageHeader;
