@@ -39,11 +39,11 @@ export const indicators: Indicator[] = [
   },
   {
     id: 2,
-    title: "Taxa de frequência de lesões ocupacionais não fatais",
+    title: "Taxa de frequência de transtornos mentais relacionados ao trabalho",
     category: "Reativo",
     details: {
-      description: "O número de novos casos de distúrbios mentais e comportamentais (CID F) por hora trabalhada durante o período de referência",
-      source: "CAT",
+      description: "O número de novos casos de distúrbios mentais e comportamentais (CID F) por hora trabalhada durante o período de referência (nexo comprovado pelo Médico do Trabalho)",
+      source: "CAT - Comunicação de Acidente de Trabalho/Relatórios de Saude Ocupacional/ Relatório Anual do PCMSO",
       tools: "",
       formula: "(Número de novos casos de distúrbios mentais e comportamentais durante o período de referência) / (Número total de horas trabalhadas por trabalhadores no grupo de referência durante o período de referência) × 1.000.000",
       frequency: "mensal",
@@ -60,7 +60,7 @@ export const indicators: Indicator[] = [
     category: "Reativo",
     details: {
       description: "Saídas de colaboradores ligadas à saúde mental",
-      source: "RH",
+      source: "Entrevistas de desligamento",
       tools: "",
       formula: "(saídas por saúde mental ÷ total de colaboradores) × 100",
       frequency: "trimestral",
@@ -158,7 +158,7 @@ export const indicators: Indicator[] = [
   },
   {
     id: 9,
-    title: "Acidentabilidade",
+    title: "Fadiga",
     category: "Reativo",
     details: {
       description: "Fadiga acumulada ao final da jornada de trabalho e a necessidade de descanso",
@@ -205,6 +205,23 @@ export const indicators: Indicator[] = [
       method: "grupos focais",
       topics: "abertura ao feedback; confiança",
       references: "10.2307/2666999; 10.1111/peps.12183"
+    }
+  },
+  {
+    id: 12,
+    title: "Violência no trabalho",
+    category: "Reativo",
+    details: {
+      description: "Frequência de relatos, denúncias ou percepção de assédio, discriminação ou violência organizacional (pode também ser estratificado por tipo de violência: moral, sexual, institucional.)",
+      source: "RH, SESMT, canal de denúncias, pesquisas internas",
+      tools: "HSE-IT, ERI, JCQ, COPSOQ, questionários internos ou canal de ouvidoria",
+      formula: "(número de relatos confirmados ou percebidos ÷ total de trabalhadores) × 100",
+      frequency: "mensal",
+      responsible: "SESTMT/RH / Compliance",
+      target: "zero tolerância",
+      method: "entrevistas, grupos focais",
+      topics: "clima de medo, assédio, discriminação, segurança psicológica",
+      references: "https://www.rbmt.org.br/details/234/pt-BR/violencia-no-trabalho--uma-revisao-da-literatura\nhttps://www.rbmt.org.br/details/218/pt-BR/analise-da-producao-cientifica-sobre-a-violencia-no-trabalho-em-servicos-hospitalares\nRev. Trib. Trab. 2. Reg., São Paulo, v. 15, n. 30, p. 60-74, jul./dez. 2023"
     }
   }
 ];
