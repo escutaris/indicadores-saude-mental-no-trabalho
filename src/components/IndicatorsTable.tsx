@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Table,
@@ -11,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { Indicator } from "@/data/indicators";
+import { Indicator } from "@/data/indicators/types";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface IndicatorsTableProps {

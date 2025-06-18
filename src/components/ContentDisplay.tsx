@@ -1,7 +1,7 @@
 import React from "react";
 import IndicatorCard from "./IndicatorCard";
 import IndicatorsTable from "./IndicatorsTable";
-import { Indicator } from "@/data/indicators";
+import { Indicator } from "@/data/indicators/types";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { toast } from "@/hooks/use-toast";

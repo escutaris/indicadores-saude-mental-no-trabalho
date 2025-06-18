@@ -5,7 +5,7 @@ import Introduction from "@/components/Introduction";
 import ControlPanel from "@/components/ControlPanel";
 import ContentDisplay from "@/components/ContentDisplay";
 import Footer from "@/components/Footer";
-import { indicators, getCategories } from "@/data/indicators";
+import { indicators, getCategories } from "@/data/indicators/index";
 
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
