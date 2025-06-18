@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BookOpen, ExternalLink } from "lucide-react";
 import {
@@ -86,7 +87,7 @@ const References: React.FC = () => {
                           {reference.title}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mt-1 break-words">
-                          {reference.authors} ({reference.year})
+                          {reference.authors}
                         </p>
                       </div>
                       <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-escutarisPrimary transition-colors duration-200 flex-shrink-0 mt-1" />
