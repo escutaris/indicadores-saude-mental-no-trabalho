@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BookOpen, ExternalLink } from "lucide-react";
 import {
@@ -15,12 +14,6 @@ const References: React.FC = () => {
       authors: "Goldberg, D. P. & Hillier, V. F.",
       year: "1979",
       url: "https://doi.org/10.1017/S0033291700021644"
-    },
-    {
-      title: "Work Environment and Mental Health in Danish Employees",
-      authors: "Hatch, D. J. et al.",
-      year: "1995",
-      url: "https://doi.org/10.1017/S0033291700033069"
     },
     {
       title: "The Measurement of Engagement and Burnout",
@@ -41,12 +34,6 @@ const References: React.FC = () => {
       url: "https://doi.org/10.1016/j.anr.2012.08.004"
     },
     {
-      title: "The Job Satisfaction–Job Performance Relationship",
-      authors: "Judge, T. A. et al.",
-      year: "2001",
-      url: "https://doi.org/10.1037/0021-9010.86.3.767"
-    },
-    {
       title: "Review of the Satisfaction with Life Scale",
       authors: "Pavot, W. & Diener, E.",
       year: "1993",
@@ -59,46 +46,10 @@ const References: React.FC = () => {
       url: "https://doi.org/10.1111/peps.12183"
     },
     {
-      title: "Organizational Climate: A Review of Theory and Research",
-      authors: "James, L. R. & Jones, A. P.",
-      year: "1974",
-      url: "https://doi.org/10.1037/0021-9010.67.3.438"
-    },
-    {
-      title: "Health, Absence, Disability, and Presenteeism Cost Estimates",
-      authors: "Goetzel, R. Z. et al.",
-      year: "2004",
-      url: "https://doi.org/10.1097/01.JOM.0000121151.40462.2F"
-    },
-    {
-      title: "Stanford Presenteeism Scale: Health Status and Employee Productivity",
-      authors: "Koopman, C. et al.",
-      year: "2002",
-      url: "https://doi.org/10.1097/01.jom.0000014006.15516.45"
-    },
-    {
-      title: "Need for Recovery Scale: A Questionnaire to Assess Recovery After Work",
-      authors: "Sluiter, J. K. et al.",
-      year: "2003",
-      url: "https://doi.org/10.1016/S0001-4575(99)00123-1"
-    },
-    {
-      title: "Work Environment and Fatigue in Nurses",
-      authors: "Vercambre, M. N. et al.",
-      year: "2009",
-      url: "https://doi.org/10.1097/JOM.0b013e3181a4940e"
-    },
-    {
       title: "EQ-5D: A Measure of Health Status from the EuroQol Group",
       authors: "Rabin, R. & de Charro, F.",
       year: "2001",
       url: "https://doi.org/10.1080/07853890175022090"
-    },
-    {
-      title: "Violência no Trabalho: Uma Revisão da Literatura",
-      authors: "Teixeira, A. P. T. & Teixeira, A. C. O.",
-      year: "2023",
-      url: "https://www.rbmt.org.br/details/234/pt-BR/violencia-no-trabalho--uma-revisao-da-literatura"
     }
   ];
 
