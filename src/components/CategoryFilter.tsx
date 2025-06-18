@@ -14,10 +14,10 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, activeFilte
       <button 
         onClick={() => setActiveFilter(null)}
         className={cn(
-          "px-3 py-1 rounded-full text-sm font-medium",
+          "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md",
           !activeFilter 
-            ? "bg-escutarisPrimary text-white" 
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            ? "bg-escutarisPrimary text-white shadow-md" 
+            : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-escutarisPrimary"
         )}
       >
         Todos
@@ -27,10 +27,10 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, activeFilte
           key={category}
           onClick={() => setActiveFilter(category)}
           className={cn(
-            "px-3 py-1 rounded-full text-sm font-medium",
+            "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md",
             activeFilter === category
-              ? "bg-escutarisPrimary text-white"
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              ? "bg-escutarisPrimary text-white shadow-md"
+              : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-escutarisPrimary"
           )}
         >
           {category}

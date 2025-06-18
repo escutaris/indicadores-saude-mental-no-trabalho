@@ -1,6 +1,5 @@
 
 import React from "react";
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu";
 import ThemeToggle from "./ThemeToggle";
 
 const PageHeader: React.FC = () => {
@@ -21,16 +20,6 @@ const PageHeader: React.FC = () => {
         </div>
         
         <div className="flex items-center space-x-2 flex-shrink-0">
-          <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
           <ThemeToggle />
         </div>
       </div>

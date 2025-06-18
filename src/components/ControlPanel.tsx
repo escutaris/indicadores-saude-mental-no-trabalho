@@ -25,12 +25,26 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
 }) => {
   return (
     <div className="mb-6 sm:mb-8">
-      <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:gap-4 sm:justify-between sm:items-center">
+      {/* Mobile: Search first, then filters, then view toggle */}
+      <div className="flex flex-col space-y-4 sm:hidden">
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <CategoryFilter 
+          categories={categories} 
+          activeFilter={activeFilter} 
+          setActiveFilter={setActiveFilter} 
+        />
+        <div className="flex justify-center">
+          <ViewToggle viewMode={viewMode} toggleViewMode={toggleViewMode} />
+        </div>
+      </div>
+
+      {/* Desktop: Original layout */}
+      <div className="hidden sm:flex sm:flex-row sm:gap-4 sm:justify-between sm:items-center">
         <div className="w-full sm:max-w-md">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
         
-        <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row sm:items-center sm:gap-4">
+        <div className="flex flex-row items-center gap-4">
           <ViewToggle viewMode={viewMode} toggleViewMode={toggleViewMode} />
           <CategoryFilter 
             categories={categories} 
