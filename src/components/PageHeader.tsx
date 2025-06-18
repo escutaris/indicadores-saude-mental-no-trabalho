@@ -5,15 +5,15 @@ import ThemeToggle from "./ThemeToggle";
 const PageHeader: React.FC = () => {
   return (
     <header className="bg-background dark:bg-background sticky top-0 z-50 w-full border-b shadow-sm">
-      <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center space-x-2 sm:space-x-4 min-w-0 flex-1">
+      <div className="mx-auto flex h-20 sm:h-24 lg:h-28 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center space-x-3 sm:space-x-6 min-w-0 flex-1">
           <img 
             src="/lovable-uploads/467189bd-1025-41fd-8c1a-a39f87632853.png" 
             alt="Escutaris Logo" 
-            className="h-8 sm:h-12 w-auto flex-shrink-0" 
+            className="h-10 sm:h-16 lg:h-20 w-auto flex-shrink-0" 
           />
           <div className="flex flex-col min-w-0">
-            <h1 className="text-sm sm:text-xl lg:text-2xl font-bold text-escutarisPrimary leading-tight">
+            <h1 className="text-base sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-escutarisPrimary leading-tight">
               Indicadores de Saúde Mental no Trabalho
             </h1>
           </div>
