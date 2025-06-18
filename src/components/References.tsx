@@ -86,13 +86,13 @@ const References: React.FC = () => {
       title: "Work Environment and Fatigue in Nurses",
       authors: "Vercambre, M. N. et al.",
       year: "2009",
-      url: "https://doi.org/10.1097/JOM.0b013e3181a4940"
+      url: "https://doi.org/10.1097/JOM.0b013e3181a4940e"
     },
     {
       title: "EQ-5D: A Measure of Health Status from the EuroQol Group",
       authors: "Rabin, R. & de Charro, F.",
       year: "2001",
-      url: "https://doi.org/10.1080/078538901750236890"
+      url: "https://doi.org/10.1080/07853890175022090"
     },
     {
       title: "Violência no Trabalho: Uma Revisão da Literatura",
