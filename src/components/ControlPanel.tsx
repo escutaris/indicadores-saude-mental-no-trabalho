@@ -24,16 +24,20 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
   toggleViewMode
 }) => {
   return (
-    <div className="mb-8 flex flex-col md:flex-row gap-4 justify-between">
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      
-      <div className="flex items-center gap-4">
-        <ViewToggle viewMode={viewMode} toggleViewMode={toggleViewMode} />
-        <CategoryFilter 
-          categories={categories} 
-          activeFilter={activeFilter} 
-          setActiveFilter={setActiveFilter} 
-        />
+    <div className="mb-6 sm:mb-8">
+      <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:gap-4 sm:justify-between sm:items-center">
+        <div className="w-full sm:max-w-md">
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        </div>
+        
+        <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row sm:items-center sm:gap-4">
+          <ViewToggle viewMode={viewMode} toggleViewMode={toggleViewMode} />
+          <CategoryFilter 
+            categories={categories} 
+            activeFilter={activeFilter} 
+            setActiveFilter={setActiveFilter} 
+          />
+        </div>
       </div>
     </div>
   );

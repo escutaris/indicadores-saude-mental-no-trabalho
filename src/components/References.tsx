@@ -26,23 +26,33 @@ const References: React.FC = () => {
     <div className="mb-8">
       <Card>
         <CardHeader className="pb-4">
-          <CardTitle className="text-2xl text-escutarisPrimary flex items-center gap-2">
-            <BookOpen className="h-6 w-6" />
-            Referências Científicas
+          <CardTitle className="text-xl sm:text-2xl text-escutarisPrimary flex items-center gap-2 flex-wrap">
+            <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
+            <span>Referências Científicas</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-3">
-            <p className="text-gray-600 mb-4">
+          <div className="space-y-4">
+            <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-6">
               Fundamentação científica dos indicadores e ferramentas utilizados neste guia.
             </p>
-            <ol className="list-decimal list-inside space-y-3 text-sm">
+            <div className="space-y-4">
               {references.map((reference, index) => (
-                <li key={index} className="text-gray-700 leading-relaxed pl-2">
-                  {reference}
-                </li>
+                <div 
+                  key={index} 
+                  className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-md border-l-4 border-escutarisPrimary"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-escutarisPrimary font-bold text-sm sm:text-base flex-shrink-0 mt-0.5">
+                      {index + 1}.
+                    </span>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-xs sm:text-sm break-words">
+                      {reference}
+                    </p>
+                  </div>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
         </CardContent>
       </Card>
