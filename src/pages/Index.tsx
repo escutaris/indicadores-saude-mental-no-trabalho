@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import Introduction from "@/components/Introduction";
 import ControlPanel from "@/components/ControlPanel";
 import ContentDisplay from "@/components/ContentDisplay";
+import References from "@/components/References";
 import Footer from "@/components/Footer";
 import { indicators, getCategories } from "@/data/indicators/index";
 
@@ -45,6 +46,8 @@ const Index = () => {
           viewMode={viewMode} 
           filters={filters} 
         />
+
+        <References />
       </main>
 
       <Footer />
