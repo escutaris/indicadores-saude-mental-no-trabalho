@@ -2,7 +2,7 @@
 import { reactiveIndicators } from './reactive';
 import { proactiveIndicators } from './proactive';
 
-export { Indicator, IndicatorDetail } from './types';
+export type { Indicator, IndicatorDetail } from './types';
 
 export const indicators = [...reactiveIndicators, ...proactiveIndicators];
 
