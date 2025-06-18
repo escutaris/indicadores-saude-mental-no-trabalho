@@ -1,7 +1,12 @@
 
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, ExternalLink } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const References: React.FC = () => {
   const references = [
@@ -99,47 +104,49 @@ const References: React.FC = () => {
 
   return (
     <div className="mb-8">
-      <Card>
-        <CardHeader className="pb-4">
-          <CardTitle className="text-xl sm:text-2xl text-escutarisPrimary flex items-center gap-2 flex-wrap">
-            <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
-            <span>Referências Científicas</span>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-6">
-              Clique nas referências abaixo para acessar os estudos científicos que fundamentam este guia.
-            </p>
-            <div className="grid gap-3 sm:gap-4">
-              {references.map((reference, index) => (
-                <a
-                  key={index}
-                  href={reference.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-md border-l-4 border-escutarisPrimary hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-escutarisPrimary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="text-escutarisPrimary font-bold text-sm sm:text-base flex-shrink-0 mt-0.5">
-                      {index + 1}.
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-gray-900 dark:text-gray-100 font-medium text-sm sm:text-base leading-tight group-hover:text-escutarisPrimary transition-colors duration-200 break-words">
-                        {reference.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mt-1 break-words">
-                        {reference.authors} ({reference.year})
-                      </p>
-                    </div>
-                    <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-escutarisPrimary transition-colors duration-200 flex-shrink-0 mt-1" />
-                  </div>
-                </a>
-              ))}
+      <Accordion type="single" collapsible className="w-full">
+        <AccordionItem value="references" className="border rounded-lg">
+          <AccordionTrigger className="px-6 py-4 hover:no-underline">
+            <div className="flex items-center gap-2 text-xl sm:text-2xl text-escutarisPrimary font-semibold">
+              <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
+              <span>Referências Científicas</span>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </AccordionTrigger>
+          <AccordionContent className="px-6 pb-6">
+            <div className="space-y-4">
+              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-6">
+                Clique nas referências abaixo para acessar os estudos científicos que fundamentam este guia.
+              </p>
+              <div className="grid gap-3 sm:gap-4">
+                {references.map((reference, index) => (
+                  <a
+                    key={index}
+                    href={reference.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-md border-l-4 border-escutarisPrimary hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-escutarisPrimary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="text-escutarisPrimary font-bold text-sm sm:text-base flex-shrink-0 mt-0.5">
+                        {index + 1}.
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-gray-900 dark:text-gray-100 font-medium text-sm sm:text-base leading-tight group-hover:text-escutarisPrimary transition-colors duration-200 break-words">
+                          {reference.title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mt-1 break-words">
+                          {reference.authors} ({reference.year})
+                        </p>
+                      </div>
+                      <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-escutarisPrimary transition-colors duration-200 flex-shrink-0 mt-1" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 };
