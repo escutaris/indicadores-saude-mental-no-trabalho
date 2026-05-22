@@ -4,7 +4,7 @@ import { Globe, Instagram, Linkedin, Youtube } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 py-8 sm:py-12 mt-12 text-center">
+    <footer className="bg-gray-50 py-8 sm:py-12 mt-12 text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-6 sm:space-y-8">
           {/* Logo */}
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             <h2 className="text-xl sm:text-2xl font-playfair font-bold text-escutarisPrimary">
               Fale com a Escutaris
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl text-sm sm:text-base leading-relaxed px-4">
+            <p className="text-gray-600 text-gray-500 max-w-2xl text-sm sm:text-base leading-relaxed px-4">
               Tem dúvidas sobre como aplicar os conhecimentos ou precisa de suporte personalizado?
               <br className="hidden sm:block" />
               Nossa equipe está pronta te ajudar.
@@ -72,11 +72,11 @@ const Footer: React.FC = () => {
           
           {/* Copyright e desenvolvido com amor */}
           <div className="text-center space-y-2">
-            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
+            <p className="text-gray-600 text-gray-500 text-xs sm:text-sm">
               © {new Date().getFullYear()} Escutaris - Todos os direitos reservados
             </p>
             
-            <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center text-xs sm:text-sm">
+            <p className="text-gray-600 text-gray-500 flex items-center justify-center text-xs sm:text-sm">
               Desenvolvido com 
               <span className="text-escutarisSecondary mx-1 text-base" aria-label="amor">
                 ❤

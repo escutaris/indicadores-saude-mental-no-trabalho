@@ -25,6 +25,11 @@ interface IndicatorProps {
   };
 }
 
+export const cardVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+};
+
 const Field: React.FC<{ label: string; value: string }> = ({ label, value }) => {
   if (!value) return null;
   return (
@@ -40,14 +45,16 @@ const Field: React.FC<{ label: string; value: string }> = ({ label, value }) => 
 const IndicatorCard: React.FC<IndicatorProps> = ({ indicator }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isReativo = indicator.category === "Reativo";
+  const accentColor = isReativo ? "#B74722" : "#4D6E3F";
 
   return (
     <motion.div
       layout
+      variants={cardVariants}
+      whileHover={{ x: 4, transition: { duration: 0.15 } }}
       className="card-health overflow-hidden"
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.25 }}
+      style={{ borderLeft: `3px solid ${accentColor}33` }}
+      whileTap={{ x: 0 }}
     >
       <div
         className="card-header focus:outline-none focus:ring-2 focus:ring-escutarisPrimary focus:ring-offset-2 rounded"
@@ -63,14 +70,14 @@ const IndicatorCard: React.FC<IndicatorProps> = ({ indicator }) => {
         aria-expanded={isOpen}
         aria-label={`${isOpen ? "Fechar" : "Abrir"} detalhes: ${indicator.title}`}
       >
-        <span className="font-semibold text-gray-800">{indicator.title}</span>
-        <div className="flex items-center gap-3 flex-shrink-0 ml-4">
+        <span className="font-semibold text-gray-800 pr-3">{indicator.title}</span>
+        <div className="flex items-center gap-3 flex-shrink-0">
           <span
-            className={`px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider rounded-full ${
-              isReativo
-                ? "bg-escutarisSecondary/10 text-escutarisSecondary"
-                : "bg-escutarisPrimary/10 text-escutarisPrimary"
-            }`}
+            className="px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider rounded-full"
+            style={{
+              backgroundColor: `${accentColor}18`,
+              color: accentColor,
+            }}
           >
             {indicator.category}
           </span>

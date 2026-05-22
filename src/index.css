@@ -75,11 +75,7 @@
   }
 
   .card-health {
-    @apply bg-white rounded-lg border border-gray-200 p-6 transition-colors duration-200;
-  }
-
-  .card-health:hover {
-    @apply border-escutarisPrimary/40;
+    @apply bg-white rounded-lg p-6 shadow-sm transition-all duration-200;
   }
 
   .card-header {

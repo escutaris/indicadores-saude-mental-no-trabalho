@@ -1,11 +1,17 @@
 
 import React from "react";
-import IndicatorCard from "./IndicatorCard";
+import { motion } from "framer-motion";
+import IndicatorCard, { cardVariants } from "./IndicatorCard";
 import IndicatorsTable from "./IndicatorsTable";
 import { Indicator } from "@/data/indicators/types";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.07 } },
+};
 
 interface ContentDisplayProps {
   indicators: Indicator[];
@@ -126,13 +132,18 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ indicators, viewMode, f
 
   if (viewMode === "cards") {
     return (
-      <div className="space-y-6 transition-opacity duration-300">
+      <div className="space-y-6">
         <ResultsHeader />
-        <div className="grid gap-6 grid-cols-1">
+        <motion.div
+          className="grid gap-4 grid-cols-1"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {filteredIndicators.map((indicator) => (
             <IndicatorCard key={indicator.id} indicator={indicator} />
           ))}
-        </div>
+        </motion.div>
       </div>
     );
   }
