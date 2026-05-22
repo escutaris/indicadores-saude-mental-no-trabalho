@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface IndicatorDetail {
   description: string;
@@ -25,118 +25,95 @@ interface IndicatorProps {
   };
 }
 
+const Field: React.FC<{ label: string; value: string }> = ({ label, value }) => {
+  if (!value) return null;
+  return (
+    <div className="py-3 border-b border-gray-100 last:border-0">
+      <dt className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-1">
+        {label}
+      </dt>
+      <dd className="text-sm leading-relaxed text-gray-700 whitespace-pre-wrap">{value}</dd>
+    </div>
+  );
+};
+
 const IndicatorCard: React.FC<IndicatorProps> = ({ indicator }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  };
+  const isReativo = indicator.category === "Reativo";
 
   return (
     <motion.div
       layout
       className="card-health overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.25 }}
     >
-      <div 
-        className="card-header focus:outline-none focus:ring-2 focus:ring-escutarisPrimary focus:ring-offset-2 rounded-md" 
-        onClick={toggleOpen}
+      <div
+        className="card-header focus:outline-none focus:ring-2 focus:ring-escutarisPrimary focus:ring-offset-2 rounded"
+        onClick={() => setIsOpen(!isOpen)}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
+          if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            toggleOpen();
+            setIsOpen(!isOpen);
           }
         }}
         tabIndex={0}
         role="button"
         aria-expanded={isOpen}
-        aria-label={`${isOpen ? 'Fechar' : 'Abrir'} detalhes do indicador ${indicator.title}`}
+        aria-label={`${isOpen ? "Fechar" : "Abrir"} detalhes: ${indicator.title}`}
       >
-        <span className="text-base sm:text-lg font-semibold">{indicator.title}</span>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full whitespace-nowrap">
+        <span className="font-semibold text-gray-800">{indicator.title}</span>
+        <div className="flex items-center gap-3 flex-shrink-0 ml-4">
+          <span
+            className={`px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider rounded-full ${
+              isReativo
+                ? "bg-escutarisSecondary/10 text-escutarisSecondary"
+                : "bg-escutarisPrimary/10 text-escutarisPrimary"
+            }`}
+          >
             {indicator.category}
           </span>
           {isOpen ? (
-            <ChevronUp className="text-escutarisSecondary h-5 w-5 flex-shrink-0" />
+            <ChevronUp className="h-4 w-4 text-gray-400 flex-shrink-0" />
           ) : (
-            <ChevronDown className="text-escutarisSecondary h-5 w-5 flex-shrink-0" />
+            <ChevronDown className="h-4 w-4 text-gray-400 flex-shrink-0" />
           )}
         </div>
       </div>
-      
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mt-4 space-y-4"
+            transition={{ duration: 0.25 }}
+            className="mt-5"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-sm sm:text-base">
-              <div className="space-y-4">
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                  <p className="font-medium text-escutarisPrimary mb-2">O que mede:</p>
-                  <p className="whitespace-pre-wrap leading-relaxed">{indicator.details.description}</p>
-                </div>
-                
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                  <p className="font-medium text-escutarisPrimary mb-2">Fonte de dados:</p>
-                  <p className="leading-relaxed">{indicator.details.source}</p>
-                </div>
-                
-                {indicator.details.tools && (
-                  <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                    <p className="font-medium text-escutarisPrimary mb-2">Ferramentas:</p>
-                    <p className="leading-relaxed">{indicator.details.tools}</p>
-                  </div>
-                )}
-                
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                  <p className="font-medium text-escutarisPrimary mb-2">Fórmula / cálculo:</p>
-                  <p className="whitespace-pre-wrap leading-relaxed">{indicator.details.formula}</p>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                  <p className="font-medium text-escutarisPrimary mb-2">Frequência:</p>
-                  <p className="leading-relaxed">{indicator.details.frequency}</p>
-                </div>
-                
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                  <p className="font-medium text-escutarisPrimary mb-2">Responsável:</p>
-                  <p className="leading-relaxed">{indicator.details.responsible}</p>
-                </div>
-                
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                  <p className="font-medium text-escutarisPrimary mb-2">Meta:</p>
-                  <p className="leading-relaxed">{indicator.details.target}</p>
-                </div>
-                
-                {indicator.details.method && (
-                  <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                    <p className="font-medium text-escutarisPrimary mb-2">Método qualitativo:</p>
-                    <p className="leading-relaxed">{indicator.details.method}</p>
-                  </div>
-                )}
-                
-                {indicator.details.topics && (
-                  <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                    <p className="font-medium text-escutarisPrimary mb-2">Temas explorados:</p>
-                    <p className="leading-relaxed">{indicator.details.topics}</p>
-                  </div>
-                )}
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
+              <dl>
+                <Field label="O que mede" value={indicator.details.description} />
+                <Field label="Fonte de dados" value={indicator.details.source} />
+                <Field label="Ferramentas" value={indicator.details.tools} />
+                <Field label="Fórmula / cálculo" value={indicator.details.formula} />
+              </dl>
+              <dl>
+                <Field label="Frequência" value={indicator.details.frequency} />
+                <Field label="Responsável" value={indicator.details.responsible} />
+                <Field label="Meta" value={indicator.details.target} />
+                <Field label="Método qualitativo" value={indicator.details.method} />
+                <Field label="Temas explorados" value={indicator.details.topics} />
+              </dl>
             </div>
-            
             {indicator.details.references && (
-              <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-md">
-                <p className="font-medium text-escutarisPrimary mb-2">Referências científicas:</p>
-                <p className="text-xs sm:text-sm break-words leading-relaxed">{indicator.details.references}</p>
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <dt className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-1">
+                  Referências científicas
+                </dt>
+                <dd className="text-xs leading-relaxed text-gray-500 break-words">
+                  {indicator.details.references}
+                </dd>
               </div>
             )}
           </motion.div>
